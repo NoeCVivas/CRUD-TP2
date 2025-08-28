@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1>Bienvenida/o</h1>
+    <p class="lead">Accedé rápido a las secciones de MI PANEL</p>
+    <div class="mt-4">
+        <a href="{% url 'oficina:lista' %}" class="btn btn-primary me-2">Oficinas</a>
+        <a href="{% url 'persona:lista' %}" class="btn btn-secondary">Personas</a>
+    </div>
+</div>
+{% endblock %}
