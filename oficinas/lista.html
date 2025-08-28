@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ titulo }}</h1>
+
+    {% if oficinas %}
+    <div class="list-group">
+        {% for oficina in oficinas %}
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="mb-1">{{ oficina.nombre }}</h5>
+                </div>
+                <div>
+                    <a href="{% url 'oficina:detalle' oficina.pk %}" class="btn btn-sm btn-outline-success">Ver</a>
+                    <a href="{% url 'oficina:editar' oficina.pk %}" class="btn btn-sm btn-outline-success">Modificar</a>
+                    <a href="{% url 'oficina:eliminar' oficina.pk %}" class="btn btn-sm btn-outline-success">Eliminar</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% include 'paginator.html' with page_obj=page_obj %}
+    
+    {% else %}
+        <div class="alert alert-info mt-3">No hay oficinas registradas.</div>
+    {% endif %}
+</div>
+{% endblock content %}
