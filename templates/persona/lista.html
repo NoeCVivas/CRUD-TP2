@@ -12,9 +12,9 @@
                     <small class="text-muted">Edad: {{ persona.edad }} | Oficina: {{ persona.oficina.nombre_corto }}</small>
                 </div>
                 <div>
-                    <a href="{% url 'persona:detalle' persona.pk %}" class="btn btn-sm btn-outline-success">Ver</a>
-                    <a href="{% url 'persona:editar' persona.pk %}" class="btn btn-sm btn-outline-success">Modificar</a>
-                    <a href="{% url 'persona:eliminar' persona.pk %}" class="btn btn-sm btn-outline-success">Eliminar</a>
+                    <a href="{% url 'persona:detalle' persona.pk %}" class="btn btn-outline-primary">Ver</a>
+                    <a href="{% url 'persona:editar' persona.pk %}" class="btn btn-outline-primary">Modificar</a>
+                    <a href="{% url 'persona:eliminar' persona.pk %}" class="btn btn-outline-primary">Eliminar</a>
                 </div>
             </div>
             {% endfor %}

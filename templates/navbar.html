@@ -1,44 +1,46 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #4b0082;" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-primary text-light" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'persona:lista' %}">MI PANEL</a>
+    <a class="navbar-brand text-light" href="{% url 'persona:lista' %}">MI PANEL</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-            <a class="nav-link " href="{% url 'persona:lista' %}">Lista de Personas</a>
+            <a class="nav-link text-light" href="{% url 'persona:lista' %}">PERSONAS</a>
         </li> 
         <li class="nav-item">  
-            <a class="nav-link " href="{% url 'oficina:lista' %}">Lista de Oficinas</a>
+            <a class="nav-link text-light" href="{% url 'oficina:lista' %}">OFICINAS</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Menu
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            MENU
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="{% url 'persona:crear' %}">Nueva Persona</a></li>
             <li><a class="dropdown-item" href="{% url 'oficina:crear' %}">Nueva Oficina</a></li>
             <li><hr class="dropdown-divider"></li>
-          
           </ul>
         </li>
-        
       </ul>
-      {% if search_action %}
-      <form class="d-flex" role="search" action="{% url search_action %}">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="q">
-        <button class="btn btn-outline-warning" type="submit">Buscar</button>
-      </form>
-      <div class="d-flex">
+      <div class="d-flex align-items-center">
         {% if user.is_authenticated %}
-          <span class="navbar-text me-3">Hola, {{ user.username }}</span>
-          <a class="btn btn-outline-warning" href="{% url 'accounts:logout_message' %}">Salir</a>
-        {% else %}
-          <a class="btn btn-outline-warning me-2" href="{% url 'accounts:login' %}">Ingresar</a>
-          <a class="btn btn-outline-warning" href="{% url 'accounts:signup' %}">Registrarse</a>
+          <span class="navbar-text me-3 text-light">Hola, {{ user.username }}</span>
         {% endif %}
-      {% endif %}
+        {% if search_action %}
+          <form class="d-flex me-3" role="search" action="{% url search_action %}">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="q">
+            <button class="btn btn-secondary" type="submit">Buscar</button>
+          </form>
+        {% endif %}
+        {% if user.is_authenticated %}
+          <a class="btn btn-secondary" href="{% url 'accounts:logout_message' %}">Salir</a>
+        {% else %}
+          <a class="btn btn-secondary me-2" href="{% url 'accounts:login' %}">Ingresar</a>
+          <a class="btn btn-secondary" href="{% url 'accounts:signup' %}">Registrarse</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </nav>
+
