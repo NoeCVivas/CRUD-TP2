@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, TemplateView
 from django.urls import reverse_lazy
-from .form import SignUpForm
+from .forms import SignUpForm 
 
 class SignUpView(CreateView):
     template_name = 'accounts/signup.html'
-    form_class = SignUpForm
+    form_class = SignUpForm  # Corregido: de SignUpForms a SignUpForm
     success_url = reverse_lazy('accounts:login')
 
     def get_context_data(self, **kwargs):
