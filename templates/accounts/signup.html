@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ title }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    
+    {# Renderiza todos los campos EXCEPTO el CAPTCHA #}
+    {{ form.as_p }}  
+
+    {# Ahora agregamos el CAPTCHA manualmente #}
+    <div class="captcha-field">
+      {% if form.captcha.errors %}
+        <div class="error">{{ form.captcha.errors }}</div>
+      {% endif %}
+    </div>
+
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        {% for field, errors in form.errors.items %}
+          {% for error in errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <button type="submit">Sign Up</button>
+    <p>Ya tienes una cuenta? <a href="{% url 'accounts:login' %}">Log in</a></p>
+  </form>
+{% endblock %}

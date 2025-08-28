@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" action="{% url 'accounts:logout' %}">
+        {% csrf_token %}
+        <h1>{{ title }}</h1>
+        {{ form.as_p }}
+        <h2>¿Seguro que quieres cerrar sesión?</h2>
+        <button type="submit">Cerrar Sesión</button>
+        <p>¿No quieres cerrar sesión? <a href="{% url 'persona:lista' %}">Volver</a></p>
+    </form>
+{% endblock %}
