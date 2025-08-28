@@ -1,0 +1,15 @@
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from captcha.fields import CaptchaField
+
+class SignUpForm(UserCreationForm):
+    captcha = CaptchaField()
+
+    class Meta:
+        model = User
+        fields = ('username', 'password1', 'password2')  # Quitamos 'captcha' de aquí
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['captcha'].label = "Verificación de seguridad"
