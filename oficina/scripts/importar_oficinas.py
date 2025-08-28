@@ -1,3 +1,7 @@
+import csv
+import sys
+from django.db import transaction
+from django.core.exceptions import ValidationError
 from oficina.models import Oficina
 
 def run (*args):
