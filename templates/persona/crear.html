@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <!-- Título centrado -->
+            <div class="text-center mb-4">
+                <h1>Crear / Editar Persona</h1>
+            </div>
+            
+            <!-- Formulario -->
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="id_nombre" class="form-label"><strong>Nombre</strong></label>
+                            {{ form.nombre }}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="id_apellido" class="form-label"><strong>Apellido</strong></label>
+                            {{ form.apellido }}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="id_edad" class="form-label"><strong>Edad</strong></label>
+                            {{ form.edad }}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="id_oficina" class="form-label"><strong>Oficina</strong></label>
+                            {{ form.oficina }}
+                        </div>
+                        
+                        <!-- Botones centrados -->
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <a href="{% url 'persona:lista' %}" class="btn btn-primary">←Volver a la lista</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
