@@ -7,22 +7,34 @@
     <h1>Bienvenida/o</h1>
     <p class="lead">Accedé rápido a las secciones de MI PANEL</p>
     
-    <div class="mt-4">
-       
-        <a href="{% url 'oficina:lista' %}" class="btn btn-primary me-2">Lista Oficinas</a>
-        <a href="{% url 'persona:lista' %}" class="btn btn-secondary me-2">Lista Personas</a>
+    <!-- Fila 1 -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-3 mb-2">
+            <a href="{% url 'oficina:lista' %}" class="btn btn-primary w-100">Lista Oficinas</a>
+        </div>
+        <div class="col-md-3 mb-2">
+            <a href="{% url 'persona:lista' %}" class="btn btn-secondary w-100">Lista Personas</a>
+        </div>
     </div>
 
-    <div class="mt-4">
-        
-        <a href="{% url 'oficina:crear' %}" class="btn btn-primary me-2">Crear Oficina</a>
-        <a href="{% url 'persona:crear' %}" class="btn btn-secondary">Crear Persona</a>
+    <!-- Fila 2 -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-3 mb-2">
+            <a href="{% url 'oficina:crear' %}" class="btn btn-primary w-100">Crear Oficina</a>
+        </div>
+        <div class="col-md-3 mb-2">
+            <a href="{% url 'persona:crear' %}" class="btn btn-secondary w-100">Crear Persona</a>
+        </div>
     </div>
 
-    <div class="mt-4">
-    
-        <a href="{% url 'oficina:detalle' 1 %}" class="btn btn-primary me-2">Ver Detalle Oficina</a>
-        <a href="{% url 'persona:detalle' 1 %}" class="btn btn-secondary">Ver Detalle Persona</a>
+    <!-- Fila 3 -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-3 mb-2">
+            <a href="{% url 'oficina:detalle' 1 %}" class="btn btn-primary w-100">Ver Detalle Oficina</a>
+        </div>
+        <div class="col-md-3 mb-2">
+            <a href="{% url 'persona:detalle' 1 %}" class="btn btn-secondary w-100">Ver Detalle Persona</a>
+        </div>
     </div>
 </div>
 {% endblock %}
