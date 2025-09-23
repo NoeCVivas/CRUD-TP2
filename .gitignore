@@ -1,7 +1,7 @@
 # Django
 *.pyc
 *~
-__pycache__/
+_pycache_/
 *.sqlite3
 *.log
 local_settings.py

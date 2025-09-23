@@ -1,0 +1,19 @@
+#IMAGEN MADRE
+FROM python:3.11-slim
+
+# CONFIGURACION PARA PODER VER LOS LOGS EN TIEMPO REAL
+ENV PYTHONUNBUFFERED=1
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the requirements file
+COPY ./requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code
+COPY . .
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
